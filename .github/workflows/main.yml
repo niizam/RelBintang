@@ -23,7 +23,7 @@ jobs:
     - name: Install dependencies
       run: |
         pip3 install playwright
-        playwright install firefox
+        playwright install chromium
 
     - name: Login
       run: |
