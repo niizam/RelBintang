@@ -10,7 +10,7 @@ def parse_cookies(cookie_str, domain, path):
     return cookies
 
 def run(playwright):
-    browser = playwright.firefox.launch(headless=True)
+    browser = playwright.chromium.launch(headless=True)
     context = browser.new_context()
 
     # Parse the COOKIES string from the environment variable and add domain and path
