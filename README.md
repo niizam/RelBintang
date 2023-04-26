@@ -1,5 +1,5 @@
 # RelBintang
-Check-in harian otomatis ke game Rel Bintang
+![image](https://user-images.githubusercontent.com/45286708/234468868-882684ff-82ef-452b-922d-7ca4306563ce.png)
 
 
 
