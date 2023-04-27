@@ -1,4 +1,5 @@
 import os
+import json
 import time
 from playwright.sync_api import sync_playwright
 
@@ -9,12 +10,12 @@ def parse_cookies(cookie_str, domain, path):
         cookies.append({"name": name, "value": value, "domain": domain, "path": path})
     return cookies
 
-def run(playwright):
+def run(playwright, cookies_str):
     browser = playwright.chromium.launch(headless=True)
     context = browser.new_context()
 
     # Parse the COOKIES string from the environment variable and add domain and path
-    cookies = parse_cookies(os.environ['COOKIES'], ".hoyolab.com", "/")
+    cookies = parse_cookies(cookies_str, ".hoyolab.com", "/")
 
     # Set the cookies
     context.add_cookies(cookies)
@@ -43,4 +44,13 @@ def run(playwright):
     browser.close()
 
 with sync_playwright() as playwright:
-    run(playwright)
+    cookies_env = os.environ['COOKIES']
+    try:
+        cookies_list = json.loads(cookies_env)
+        if isinstance(cookies_list, list):
+            for cookies_str in cookies_list:
+                run(playwright, cookies_str)
+        else:
+            raise ValueError
+    except ValueError:
+        run(playwright, cookies_env)
