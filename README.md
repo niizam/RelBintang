@@ -27,3 +27,5 @@ else msg = 'Cancel'
 7. Buka https://github.com/username/RelBintang/actions/workflows/main.yml
 8. Klik `Run workflow`
 ![image](https://user-images.githubusercontent.com/45286708/234468303-61e1ce3c-f2d4-41cd-b315-8816d607e01a.png)
+
+Untuk dua akun atau lebih format penulisan cookiesnya `["COOKIES1", "COOKIES2", ...]`
