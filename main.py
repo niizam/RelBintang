@@ -39,9 +39,12 @@ def run(playwright, cookies_str):
     if check.is_visible():
         text = page.evaluate('document.querySelector(".m-dialog-body").textContent.trim()')
         print(text)
-
-    # Close the browser
-    browser.close()
+        context.close()
+        browser.close()
+    else:
+        # Close the browser
+        context.close()
+        browser.close()
 
 with sync_playwright() as playwright:
     cookies_env = os.environ['COOKIES']
