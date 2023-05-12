@@ -33,6 +33,13 @@ def run(playwright, cookies_str):
     # Click all days to login
     for element in page.query_selector_all(".components-pc-assets-__prize-list_---item---F852VZ"):
         element.click()
+    
+    #Genshin
+    page.goto("https://act.hoyolab.com/ys/event/signin-sea-v3/index.html?act_id=e202102251931481")
+    time.sleep(3)
+    for element in page.query_selector_all(".components-home-assets-__sign-content_---sign-award---1YRH31"):
+        element.click()
+        
     context.close()
     browser.close()
     
