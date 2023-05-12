@@ -37,6 +37,10 @@ def run(playwright, cookies_str):
     #Genshin
     page.goto("https://act.hoyolab.com/ys/event/signin-sea-v3/index.html?act_id=e202102251931481")
     time.sleep(3)
+    x = page.locator(".components-home-assets-__sign-guide_---guide-close---2VvmzE")
+    if x.is_visible():
+        x.click()
+
     for div in page.query_selector_all(".components-home-assets-__sign-content_---sign-item---k8WFIr"):
         div.click()
         
