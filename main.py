@@ -33,18 +33,20 @@ def run(playwright, cookies_str):
     # Click all days to login
     for element in page.query_selector_all(".components-pc-assets-__prize-list_---item---F852VZ"):
         element.click()
+    context.close()
+    browser.close()
     
     # Evaluate JavaScript code and log the result
-    check = page.locator(".m-dialog-body")
-    if check.is_visible():
-        text = page.evaluate('document.querySelector(".m-dialog-body").textContent.trim()')
-        print(text)
-        context.close()
-        browser.close()
-    else:
-        # Close the browser
-        context.close()
-        browser.close()
+#    check = page.locator(".m-dialog-body")
+#    if check.is_visible():
+#        text = page.evaluate('document.querySelector(".m-dialog-body").textContent.trim()')
+#        print(text)
+#        context.close()
+#        browser.close()
+#    else:
+#        # Close the browser
+#        context.close()
+#        browser.close()
 
 with sync_playwright() as playwright:
     cookies_env = os.environ['COOKIES']
