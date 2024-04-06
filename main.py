@@ -28,24 +28,24 @@ def run(playwright, cookies_str):
     if dialog.is_visible():
         dialog.click()
     # Click the load more
-    page.click(".components-pc-assets-__prize-list_---arrow---14hvWv")
+    page.get_by_text("Load more").click()
 
     # Click all days to login
     for element in page.query_selector_all(".components-pc-assets-__prize-list_---item---F852VZ"):
         element.click()
     
     #Genshin
-    page.goto("https://act.hoyolab.com/ys/event/signin-sea-v3/index.html?act_id=e202102251931481")
-    time.sleep(3)
-    x = page.locator(".components-home-assets-__sign-guide_---guide-close---2VvmzE")
-    if x.is_visible():
-        x.click()
-
-    for div in page.query_selector_all(".components-home-assets-__sign-content_---sign-item---k8WFIr"):
-        div.click()
-        
-    context.close()
-    browser.close()
+#    page.goto("https://act.hoyolab.com/ys/event/signin-sea-v3/index.html?act_id=e202102251931481")
+#    time.sleep(3)
+#    x = page.locator(".components-home-assets-__sign-guide_---guide-close---2VvmzE")
+#    if x.is_visible():
+#        x.click()
+#
+#    for div in page.query_selector_all(".components-home-assets-__sign-content_---sign-item---k8WFIr"):
+#        div.click()
+#       
+#    context.close()
+#    browser.close()
     
     # Evaluate JavaScript code and log the result
 #    check = page.locator(".m-dialog-body")
